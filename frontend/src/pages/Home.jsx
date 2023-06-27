@@ -1,6 +1,22 @@
 import React,{useEffect} from 'react'
 import { useExpenseContext } from '../hooks/useExpenseContext'
 import {useAuthContext} from '../hooks/useAuthContext'
+import Chart from '../components/Chart'
+import TransBlock from '../components/TransBlock'
+import TotalBlock from '../components/TotalBlock'
+
+const RecentBlock = ({arr}) => {
+  
+  return (
+    <div className='p-0 overflow-y-auto scroll'>
+      <h1 className='text-3xl text-cgreen-light my-2'>Recent History</h1>
+      {
+        arr?.filter((trans,index) => index<3).map(trans => <TransBlock trans = {trans} />)
+      }
+    </div>
+  )
+
+}
 
 const Home = () => {
 
@@ -23,11 +39,14 @@ const Home = () => {
     if(user) {
         fetchExpenses()
     }
-  },[dispatch,expenses])
+  },[dispatch,user])
 
   return (
-    <div className='bg-cblack-light col-span-3 border-gray-300 text-white rounded-3xl flex flex-col overflow-y-auto scroll'>
-      Home
+    <div className='bg-cblack-light col-span-3 border-gray-300 text-white rounded-3xl grid grid-cols-2 grid-rows-2 overflow-y-auto scroll'>
+      <Chart />
+      <RecentBlock arr = {expenses} />
+      <TotalBlock income = {true} />
+      <TotalBlock income = {false} />
     </div>
   )
 }

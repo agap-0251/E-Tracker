@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import {useNavigate,NavLink} from 'react-router-dom'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useLogout } from '../hooks/useLogout'
+import {BsGraphUpArrow} from 'react-icons/bs'
+import {BiTransfer} from 'react-icons/bi'
+import {FaMoneyCheck} from 'react-icons/fa'
+import {MdPayments} from 'react-icons/md'
 
 const NavContainer = () => {
 
@@ -37,15 +41,17 @@ const NavContainer = () => {
         </div>
 
         <ul className="flex flex-col mt-5 justify-evenly h-full row-span-3 text-cwheat-light">
-          <li className={(act === 0)?"border-l-2 border-gray-400":""}><NavLink onClick={() => {handleNav(0);  }} to={'/'} className="hover:text-gray-300 pl-2">Dashboard</NavLink></li>
-          <li className={(act === 1)?"border-l-2 border-gray-400":""}><NavLink onClick={() => {handleNav(1);  }} to={'/transactions'} className="hover:text-gray-300 pl-2">Transactions</NavLink></li>
-          <li className={(act === 2)?"border-l-2 border-gray-400":""}><NavLink onClick={() => {handleNav(2);  }} to={'/income'} className="hover:text-gray-300 pl-2">Income</NavLink></li>
-          <li className={(act === 3)?"border-l-2 border-gray-400":""}><NavLink onClick={() => {handleNav(3); }} to={'/expense'} className="hover:text-gray-300 pl-2">Expenses</NavLink></li>
+          <li className={(act === 0)?"text-corange-light":""}><NavLink onClick={() => {handleNav(0);  }} to={'/'} className="hover:text-gray-300  flex items-center"><BsGraphUpArrow className="mr-1" /> Dashboard</NavLink></li>
+          <li className={(act === 1)?"text-corange-light":""}><NavLink onClick={() => {handleNav(1);  }} to={'/transactions'} className="hover:text-gray-300 flex items-center"><BiTransfer className="mr-1" /> Transactions</NavLink></li>
+          <li className={(act === 2)?"text-corange-light":""}><NavLink onClick={() => {handleNav(2);  }} to={'/income'} className="hover:text-gray-300 flex items-center"><FaMoneyCheck className="mr-1" /> Income</NavLink></li>
+          <li className={(act === 3)?"text-corange-light":""}><NavLink onClick={() => {handleNav(3); }} to={'/expense'} className="hover:text-gray-300 flex items-center"><MdPayments className="mr-1" /> Expenses</NavLink></li>
         </ul>
       </div>
 
       {/* signin / out */}
-      <button onClick={handleClick} className="m-4 py-2 px-3 bg-cyan-600 hover:bg-cyan-500 border-none outline-none rounded-full" type="button">
+      <button onClick={handleClick} 
+      className="m-4 py-2 px-3 bg-cyan-600 hover:bg-cyan-500 shadow-inner shadow-cyan-100 border-none outline-none rounded-full"
+       type="button">
         SignOut
       </button>
     </div>

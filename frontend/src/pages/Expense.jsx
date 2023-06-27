@@ -18,8 +18,8 @@ const RecentHistory = ({recent}) => {
 const TotalAmount = ({recent}) => {
   return (
     <div className='col-span-2  flex items-center justify-center'>
-      <div className="text-3xl bg-cgreen-dark py-2 px-3">
-        Total Expense is <span>${recent?.map(trans => trans.amount).reduce((accumulator,currentValue) => accumulator + currentValue,0) || 0}</span>
+      <div className="text-3xl bg-cgreen-dark py-2 px-3 w-5/6 h-2/3 rounded-lg flex items-center justify-center">
+        Total Expense is <span className='ml-2'>${recent?.map(trans => trans.amount).reduce((accumulator,currentValue) => accumulator + currentValue,0) || 0}</span>
       </div>
     </div>
   )
