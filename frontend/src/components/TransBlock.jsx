@@ -27,8 +27,6 @@ const TransBlock = ({trans}) => {
     }
   }
 
-  console.log(trans)
-
     return (
         <div className={trans.isIncome ?'flex flex-col justify-between bg-cgreen-dark my-1 p-3 rounded-lg mx-1' 
                         :'flex flex-col justify-between bg-corange-light my-1 p-3 rounded-lg mx-1'}>

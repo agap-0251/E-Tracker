@@ -26,6 +26,22 @@ const getSingleExpense = async (req,res) => {
 
 }
 
+const getWeelyExpenses = async (req,res) => {
+    // const expense = await Expense.find().sort({createdAt : -1})
+    const u_id = req.user._id
+    const expense = (await Expense.find({user_id : u_id}).sort({createdAt : -1}))
+    const date = new Date()
+    let data = []
+    dat
+    console.log(date.toLocaleDateString())
+    date.setDate(date.getDate()-1)
+    console.log(date.toLocaleDateString())
+    if(!expense) {
+        return res.status(200).json({msg : "No expenses"})
+    }
+    res.status(200).json(expense)
+}
+
 const createExpense = async (req,res) => {
     const {title,amount,category,isIncome,payDate} = req.body
     const user_id = req.user._id
@@ -66,5 +82,5 @@ const updateExpense = async (req,res) => {
 }
 
 module.exports = {
-    getAllExpenses,getSingleExpense,createExpense,deleteExpense,updateExpense
+    getAllExpenses,getSingleExpense,createExpense,deleteExpense,updateExpense,getWeelyExpenses
 }

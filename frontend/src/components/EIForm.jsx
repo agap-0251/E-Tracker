@@ -52,7 +52,7 @@ const EIForm = ({isIn}) => {
                 <option value="Education">Education</option>
                 <option value="Other">Other</option>
             </select>
-            <button className='bg-cgreen-dark opacity-80 py-2 px-3 rounded-full hover:opacity-90 '>{isIncome ? 'Add Income' : 'Add Expense'}</button>
+            <button className='bg-cgreen-dark shadow-inner shadow-green-100 opacity-80 py-2 px-3 rounded-full hover:opacity-90 '>{isIncome ? 'Add Income' : 'Add Expense'}</button>
         </form>
     </div>
   )

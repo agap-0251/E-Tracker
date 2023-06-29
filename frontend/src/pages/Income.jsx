@@ -37,7 +37,7 @@ const Income = () => {
 
 
   return (
-   <div className='bg-cblack-light col-span-3  border-gray-300 text-white rounded-3xl 
+   <div className='bg-cblack-light shadow-inner shadow-black col-span-3  border-gray-300 text-white rounded-3xl 
     grid grid-cols-1 grid-rows-4 overflow-hidden'>
       <TotalAmount recent = {recent} />
       <div className="grid grid-cols-3 row-span-3">

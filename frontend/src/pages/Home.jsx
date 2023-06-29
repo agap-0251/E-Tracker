@@ -11,7 +11,7 @@ const RecentBlock = ({arr}) => {
     <div className='p-0 overflow-y-auto scroll'>
       <h1 className='text-3xl text-cgreen-light my-2'>Recent History</h1>
       {
-        arr?.filter((trans,index) => index<3).map(trans => <TransBlock trans = {trans} />)
+        arr?.filter((trans,index) => index<3).map(trans => <TransBlock key = {trans._id} trans = {trans} />)
       }
     </div>
   )
@@ -42,7 +42,7 @@ const Home = () => {
   },[dispatch,user])
 
   return (
-    <div className='bg-cblack-light col-span-3 border-gray-300 text-white rounded-3xl grid grid-cols-2 grid-rows-2 overflow-y-auto scroll'>
+    <div className='bg-cblack-light shadow-inner shadow-black col-span-3 border-gray-300 text-white rounded-3xl grid grid-cols-2 grid-rows-2 overflow-y-auto scroll'>
       <Chart />
       <RecentBlock arr = {expenses} />
       <TotalBlock income = {true} />
