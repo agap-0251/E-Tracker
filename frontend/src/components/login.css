@@ -1,6 +1,6 @@
 
 .login-container,.signup-container {
-    background-color: #cac9c9;
+
     height: calc(100vh - 8rem);
     display: flex;
     flex-direction: column;
