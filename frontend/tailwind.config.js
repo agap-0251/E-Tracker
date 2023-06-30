@@ -11,8 +11,8 @@ export default {
       transparent : 'transparent',
       current : 'currentColor',
       cblack : {
-        light : '#181717',
-        lighter : '#1f1d1d'
+        lighter : '#181717',
+        light : '#2b2a2a',
       },
       cgreen : {
         light : '#5cdb95',

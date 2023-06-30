@@ -11,7 +11,7 @@ const RecentBlock = ({arr}) => {
     <div className='p-0 overflow-y-auto scroll'>
       <h1 className='text-3xl text-cgreen-light my-2'>Recent History</h1>
       {
-        arr?.filter((trans,index) => index<3).map(trans => <TransBlock key = {trans._id} trans = {trans} />)
+        arr?.filter((trans,index) => index<4).map(trans => <TransBlock key = {trans._id} trans = {trans} />)
       }
     </div>
   )

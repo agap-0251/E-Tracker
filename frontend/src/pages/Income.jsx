@@ -7,7 +7,7 @@ import '../components/scrollbar.css'
 const RecentHistory = ({recent}) => {
   
   return (
-    <div className='col-span-2 overflow-y-auto scroll flex flex-col border-[1px] border-gray-400'>
+    <div className='col-span-2 overflow-y-auto scroll flex flex-col shadow-inner ml-3 px-4 shadow-black'>
       <h1 className='text-3xl text-cgreen-light my-2'>Recent Income</h1>
       {recent?.map(trans => <TransBlock key={trans._id} trans = {trans} />)
 

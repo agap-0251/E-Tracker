@@ -31,15 +31,30 @@ const getWeelyExpenses = async (req,res) => {
     const u_id = req.user._id
     const expense = (await Expense.find({user_id : u_id}).sort({createdAt : -1}))
     const date = new Date()
-    let data = []
-    dat
-    console.log(date.toLocaleDateString())
     date.setDate(date.getDate()-1)
-    console.log(date.toLocaleDateString())
+    let data = [];
+    for(let i = 1; i <= 6; i++) {
+        let currentRec =  expense.filter(rec => rec.payDate.toLocaleDateString() === date.toLocaleDateString())
+                                  .map(trans => {
+                                    return {amount : trans.amount,isIncome : trans.isIncome}
+                                  })
+
+        let Expense,Income;
+        Expense = currentRec.filter(trans => !trans?.isIncome)
+                                 .map(rec => Number(rec?.amount))
+                                 ?.reduce((acc,val) => acc+val,0)
+
+        Income = currentRec.filter(trans => trans?.isIncome)
+                                 .map(rec => Number(rec?.amount))
+                                 ?.reduce((acc,val) => acc+val,0)
+        data.push({name : date.toLocaleDateString(),Expense,Income})
+        date.setDate(date.getDate()-1)
+    }
+    // console.log(data)
     if(!expense) {
         return res.status(200).json({msg : "No expenses"})
     }
-    res.status(200).json(expense)
+    res.status(200).json(data)
 }
 
 const createExpense = async (req,res) => {

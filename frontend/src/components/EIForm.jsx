@@ -37,12 +37,12 @@ const EIForm = ({isIn}) => {
 
 
   return (
-    <div className='border-[1px] border-gray-400 '>
-        <h1 className='text-[#4fce4f] pl-4 pt-3 text-3xl' >{isIncome ? 'Income' : 'Expense'}</h1>
-        <form className='flex flex-col items-start pl-10 pb-4 justify-evenly  h-full' onSubmit={handleSubmit}>
+    <div className='shadow-inner shadow-black border-gray-400 '>
+        <h1 className='text-[#4fce4f] font-semibold pl-4 pt-3 text-3xl' >{isIncome ? 'Income' : 'Expense'}</h1>
+        <form className='flex flex-col text-2xl items-start pl-10 pb-4 justify-evenly  h-full' onSubmit={handleSubmit}>
             <input value = {title} onChange={(e) => {setTitle(e.target.value)}} className='bg-cblack-light border-b-2 border-gray-500' type="text" placeholder='Title' />
             <input value = {amount} onChange={(e) => {setAmount(e.target.value)}} className='bg-cblack-light border-b-2 border-gray-500' type="text" placeholder='Amount' />
-            <input value = {payDate} onChange={(e) => {setPayDate(e.target.value)}} className='bg-cblack-light border-b-2 border-gray-500' type='date' />
+            <input value = {payDate} onChange={(e) => {setPayDate(e.target.value)}} className='bg-cblack-light border-b-2  border-gray-500' type='date' placeholder='Select Date' />
             <select id="category" value={category} onChange={(e) => {setCategory(e.target.value)}} className="bg-cblack-light border-gray-500 border-2 placeholder:text-gray-200">
                 <option defaultValue= '' disabled = {true} value=''>Category</option>
                 <option value="Food">Food</option>
