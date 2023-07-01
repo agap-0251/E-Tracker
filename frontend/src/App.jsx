@@ -12,7 +12,7 @@ function App() {
   const {user} = useAuthContext()
 
   return (
-    <div className=''>
+    <div className='min-h-[100vh]'>
       <Routes>
       <Route path='/'  element = {(user) ? <MainContainer children={<Home />} /> : <Navigate to="/register" />} />
         <Route path = '/transactions'  element = {(user) ?<MainContainer children={<Transactions />} /> : <Navigate to="/register" />} />

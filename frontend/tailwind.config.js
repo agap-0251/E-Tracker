@@ -17,7 +17,8 @@ export default {
       cgreen : {
         light : '#5cdb95',
         lighter : ' #8ee4af',
-        dark : '#379683'
+        dark : '#379683',
+        button : 'rgb(55, 151, 55)'
       },
       corange : {
         light : '#e35933'
@@ -32,34 +33,11 @@ export default {
     },
     boxShadow: {
       'darkShadow': ' 1px 1px 5px 0.1px rgba(255, 255, 255, 0.3)',
+    },
+    screens: {
+      'xs' : '470px',
+      'xxs' : '340px'
     }
-    // keyframes : {
-    //   bgGradient : {
-    //     '0%' : {
-    //       'background-position': '00% 200%'
-    //     },
-      
-    //       '25%' : {
-    //       'background-position': '250% 375%'
-    //     },
-      
-    //     '50%' : {
-    //       'background-position': '200% 250%'
-    //     },
-      
-    //       '75%' : {
-    //       'background-position': '300% 250%'
-    //     },
-      
-    //     '100%' : {
-    //       'background-position': '300% 100%'
-    //     }
-    //   }
-    // },
-    // animation : {
-    //   bgGradient : 'ease-in-out 3s alternate-infinite'
-    // }
-
     
   }
   },
