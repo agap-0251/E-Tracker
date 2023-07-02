@@ -86,9 +86,9 @@ const LandingPage = () => {
         {/* right side */}
         <div className="flex flex-col justify-center items-center">
           {hadAccount ? <Login /> : <Signup />}
-          {hadAccount ? <button onClick={handleClick} className='hover:text-white text-corange-light xs:text-xl bg-none
+          {hadAccount ? <button onClick={handleClick} className='hover:text-white text-corange-light xs:text-xl outline-none border-none active:text-blue-400
           xxs:text-lg xxs:mt-2 mt-2'>Create your account.</button> 
-                      : <button onClick={handleClick} className='hover:text-white text-corange-light xs:text-xl bg-none
+                      : <button onClick={handleClick} className='hover:text-white text-corange-light xs:text-xl outline-none border-none active:text-blue-400
                       xxs:text-lg xxs:mt-2 mt-2'>Already had an account ?</button>}
         </div>
       </div>

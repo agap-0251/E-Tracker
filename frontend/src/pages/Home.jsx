@@ -42,7 +42,7 @@ const Home = () => {
   },[dispatch,user])
 
   return (
-    <div className='bg-cblack-light shadow-inner shadow-black col-span-3 border-gray-300 text-white rounded-3xl grid grid-cols-2 grid-rows-2 overflow-y-auto scroll'>
+    <div className='bg-cblack-light shadow-inner shadow-black lg:col-span-3 border-gray-300 text-white rounded-3xl grid grid-cols-2 grid-rows-2 overflow-y-auto scroll'>
       <Chart />
       <RecentBlock arr = {expenses} />
       <TotalBlock income = {true} />

@@ -35,6 +35,9 @@ export default {
       'darkShadow': ' 1px 1px 5px 0.1px rgba(255, 255, 255, 0.3)',
     },
     screens: {
+      'gmd':'900px',
+      'glg':'1200px',
+      'gxl' : '1312px',
       'xs' : '470px',
       'xxs' : '340px'
     }
