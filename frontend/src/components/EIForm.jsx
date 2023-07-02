@@ -37,18 +37,20 @@ const EIForm = ({isIn}) => {
 
 
   return (
-    <div className='shadow-inner shadow-black border-gray-400 
+    <div className='shadow-inner shadow-black border-gray-400
+        glg:mr-0 
         lg:mr-[1rem]
         md:min-h-[34rem] md:mr-[1.4rem]
         xxs:min-h-[28rem]
         min-h-[30rem] flex flex-col items-center'>
         <h1 className='text-cgreen-light font-semibold pl-4 pt-3 text-3xl
             xxs:text-2xl' >{isIncome ? 'Income' : 'Expense'}</h1>
-        <form className='flex flex-col  gxl:text-2xl items-start pl-10 pb-4 justify-evenly  h-full 
+        <form className='flex flex-col gxl:text-2xl items-start pl-10 sm:pb-4 justify-evenly  h-full 
             gmd:text-xl
             xs:text-xl
             sm:text-2xl
-            xxs:text-lg xxs:pb-0' onSubmit={handleSubmit}>
+            xxs:text-lg xxs:pb-0
+            pb-0' onSubmit={handleSubmit}>
             <input value = {title} onChange={(e) => {setTitle(e.target.value)}} className='bg-cblack-light border-b-2 border-gray-500' type="text" placeholder='Title' />
             <input value = {amount} onChange={(e) => {setAmount(e.target.value)}} className='bg-cblack-light border-b-2 border-gray-500' type="text" placeholder='Amount' />
             <input value = {payDate} onChange={(e) => {setPayDate(e.target.value)}} className='bg-cblack-light border-b-2  border-gray-500 text-gray-300' type='date' placeholder='Select Date' />

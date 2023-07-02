@@ -7,12 +7,15 @@ import '../components/scrollbar.css'
 const RecentHistory = ({recent}) => {
 
   return (
-    <div className='glg:col-span-2 overflow-y-auto scroll flex flex-col ml-3 px-4 shadow-inner shadow-black border-gray-400
-      lg:ml-[-0.9rem] lg:pl-4 lg:col-span-1
-      md:ml-[-1rem]
+    <div className='glg:col-span-2 overflow-y-auto scroll flex flex-col  px-4 shadow-inner shadow-black
+    xl:ml-1
+    lg:h-[38.2rem]  
+    lg:ml-[-0.9rem] lg:pl-4 lg:col-span-1
+      md:ml-[-1rem] md:h-[38.2rem]
       sm:h-[27rem] 
       xs:h-[27rem]
       xxs:h-[27rem] xxs:ml-[0rem]
+      ml-[0rem]
       '>
       <h1 className='text-3xl font-semibold text-cgreen-light my-2
         xxs:text-2xl'>Recent Expenses</h1>
@@ -25,14 +28,16 @@ const RecentHistory = ({recent}) => {
 const TotalAmount = ({recent}) => {
   return (
     <div className=' flex items-center justify-center
-      sm:py-4
-      xs:py-4
-      xxs:py-3'>
-      <div className="text-3xl bg-cgreen-dark py-2 px-3 lg:w-5/6 lg:h-2/3 rounded-lg flex items-center justify-center
+    sm:py-4
+    xs:py-4
+    xxs:py-3
+    py-1'>
+       <div className="lg:text-3xl bg-cgreen-dark py-2 px-3 lg:w-5/6 lg:h-2/3 rounded-lg flex items-center justify-center
        md:h-3/4
-       sm:py-4 sm:w-5/6
-       xs:py-4 xs:w-5/6 xs:text-2xl
-       xxs:py-3 xxs:w-5/6 xxs:text-xl">
+       sm:py-4 sm:w-5/6 sm:h-5/6
+       xs:py-4 xs:w-5/6 xs:text-2xl xs:h-5/6
+       xxs:py-3 xxs:w-5/6 xxs:h-5/6 xxs:text-xl
+       w-5/6 h-2/3 text-lg">
         Total Expense is <span className='ml-2'>${recent?.map(trans => trans.amount).reduce((accumulator,currentValue) => accumulator + currentValue,0) || 0}</span>
       </div>
     </div>
