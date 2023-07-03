@@ -18,6 +18,9 @@ app.use((req,res,next) => {
 })
 
 // db connection and routes
+app.get('/',(req,res) => {
+    res.status(200).json({msg : "welcome to e tracker"})
+})
 
 app.use('/api/expenses',expenseRoutes)
 app.use('/api/user',userRoutes)
