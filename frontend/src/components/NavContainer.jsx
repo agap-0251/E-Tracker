@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate, NavLink } from "react-router-dom";
+import React, {useState } from "react";
+import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogout } from "../hooks/useLogout";
 import { useNavContext } from "../hooks/useNavContext";
@@ -7,46 +7,12 @@ import { BsGraphUpArrow } from "react-icons/bs";
 import { BiTransfer } from "react-icons/bi";
 import { FaMoneyCheck } from "react-icons/fa";
 import { MdPayments } from "react-icons/md";
+import Profile from "./Profile";
 
-const NavContainer = () => {
-  const [act, setAct] = useState(0);
-  const navigate = useNavigate();
-  const [showNav,setShowNav] = useNavContext()
-  const { user } = useAuthContext();
-  const { logout } = useLogout();
-  
-  function handleNav(n) {
-    setAct(n);
-  }
 
-  function handleClick(e) {
-    e.preventDefault();
-    logout();
-  }
-
+const Avatar = () => {
   return (
-    <>
-      <div 
-        className="bg-cblack-light shadow-inner shadow-black border-gray-300 text-white h-full 
-            w-full rounded-3xl lg:block
-          hidden 
-         "
-      >
-
-        
-
-        {/* profile + nav */}
-
-        <div className="w-full grid grid-cols-1 grid-rows-6 items-center pl-10 pb-10">
-          <h1
-            className="glg:text-[3rem] text-corange-light
-          lg:text-[2.5rem]"
-          >
-            E-Tracker
-          </h1>
-
-          <div className=" py-3 flex items-center row-span-2">
-            <svg
+    <svg
               className="p-1 glg:w-[5rem] glg:h-[5rem] bg-gray-500 shadow-lg shadow-black rounded-full
           lg:w-[4.5rem] lg:h-[4.5rem]"
               xmlns="http://www.w3.org/2000/svg"
@@ -102,13 +68,76 @@ const NavContainer = () => {
               <rect width="48" height="16" x="304" y="424"></rect>
               <path d="M431.773,345.106l-88.854-34.555-.014,0-29.486-11.467-8.187-45.027,20.99-17.991A27.968,27.968,0,0,0,336,214.8V192h14a18.021,18.021,0,0,0,18-18V146a18.021,18.021,0,0,0-18-18H336V108.96A18,18,0,0,0,344,94V88H328v6a2,2,0,0,1-2,2H296V51.1l23.8,7.932A11.984,11.984,0,0,1,328,70.415V72h16V70.415a27.964,27.964,0,0,0-19.146-26.563L293.982,33.561A28.045,28.045,0,0,0,268,16H168a8,8,0,0,0-8,8V84a28.035,28.035,0,0,0,16,25.3V128H162a18.021,18.021,0,0,0-18,18v28a18.021,18.021,0,0,0,18,18h14v23.159a27.956,27.956,0,0,0,9.868,21.336l20.868,17.734-8.155,44.85L169.1,310.546l-.01,0L117.1,330.766l5.8,14.912,42.523-16.536A60,60,0,0,0,223.964,376h64.072a59.875,59.875,0,0,0,32-9.234L311.5,353.235A43.885,43.885,0,0,1,288.036,360H223.964a44.056,44.056,0,0,1-43.417-36.74l15.441-6A28.008,28.008,0,0,0,223.964,344h64.072a28.008,28.008,0,0,0,27.976-26.745l15.441,6a43.573,43.573,0,0,1-9.637,20.933L334.1,354.445a60.327,60.327,0,0,0,12.477-25.3l79.4,30.876A21.863,21.863,0,0,1,440,380.522V480H392V424H376v56H136V424H120v56H72V380.522a21.863,21.863,0,0,1,14.026-20.5l22.016-8.562-5.8-14.912-22.017,8.562A37.764,37.764,0,0,0,56,380.522V488a8,8,0,0,0,8,8H448a8,8,0,0,0,8-8V380.522A37.764,37.764,0,0,0,431.773,345.106ZM350,144a2,2,0,0,1,2,2v28a2,2,0,0,1-2,2H336V144ZM280,44V96H264V44a27.836,27.836,0,0,0-2.7-12H268A12.013,12.013,0,0,1,280,44ZM236,32a12.013,12.013,0,0,1,12,12V96H220a12.013,12.013,0,0,1-12-12V32Zm-60,0h16V84a27.836,27.836,0,0,0,2.7,12H188a12.013,12.013,0,0,1-12-12ZM162,176a2,2,0,0,1-2-2V146a2,2,0,0,1,2-2h14v32Zm30,39.159V112H320V214.8a11.982,11.982,0,0,1-4.191,9.111l-43.4,37.2A12.008,12.008,0,0,1,264.6,264H247.351a12.009,12.009,0,0,1-7.771-2.856L196.229,224.3A11.979,11.979,0,0,1,192,215.159Zm105.249,108.53A11.969,11.969,0,0,1,288.036,328H223.964a12,12,0,0,1-11.806-14.146l8.664-47.654,8.4,7.135A28.025,28.025,0,0,0,247.351,280H264.6a28.019,28.019,0,0,0,18.222-6.741l8.338-7.147,8.68,47.742A11.971,11.971,0,0,1,297.249,323.689Z"></path>
             </svg>
-            <p
-              className="glg:text-2xl text-gray-300 pl-5
-            lg:text-xl"
-            >
-              {user.uname}
-            </p>
-          </div>
+  )
+}
+
+const NavContainer = () => {
+  const [act, setAct] = useState(0);
+  const [showNav,setShowNav] = useNavContext()
+  const [postImage,setPostImage] = useState({myFile : ""})
+  const { user } = useAuthContext();
+  const { logout } = useLogout();
+  
+  function handleNav(n) {
+    setAct(n);
+  }
+
+  function handleClick(e) {
+    e.preventDefault();
+    logout();
+  }
+
+  const uploadImage = async (base64) => {
+    const {email} = user
+    // console.log(base64)
+    const res = await fetch('/api/user/image',{
+      method : 'POST',
+      headers : {'Content-Type' : 'application/json'},
+      body : JSON.stringify({email,base64})
+    })
+    const json = await res.json()
+    if(res.ok) {
+
+      console.log(json)
+      setPostImage({...postImage,myFile : base64})
+    }
+    if(!res.ok) {
+      console.log(json.error)
+
+    }
+}
+
+
+  const handleUpload = async(e) => {
+    e.preventDefault();
+    const file = e.target.files[0]
+    const base64 = await convertToBase64(file);
+    uploadImage(base64)
+  }
+
+
+  return (
+    <>
+      <div 
+        className="bg-cblack-light shadow-inner shadow-black border-gray-300 text-white h-full 
+            w-full rounded-3xl lg:block
+          hidden 
+         "
+      >
+
+        
+
+        {/* profile + nav */}
+
+        <div className="w-full grid grid-cols-1 grid-rows-6 items-center pl-10 pb-10">
+          <h1
+            className="glg:text-[3rem] text-corange-light
+          lg:text-[2.5rem]"
+          >
+            E-Tracker
+          </h1>
+
+          <Profile user = {user} handleUpload={handleUpload} postImage={postImage} />
 
           <ul className="flex flex-col text-xl  justify-evenly h-full row-span-3 text-cwheat-light">
             <li className={act === 0 ? "text-corange-light" : ""}>
@@ -174,3 +203,16 @@ const NavContainer = () => {
 };
 
 export default NavContainer;
+
+function convertToBase64(file) {
+  return new Promise((resolve,reject) => {
+    const fileReader = new FileReader();
+    fileReader.readAsDataURL(file);
+    fileReader.onload = () => {
+      resolve(fileReader.result)
+    };
+    fileReader.onerror = (error) => {
+      reject(error)
+    }
+  })
+}

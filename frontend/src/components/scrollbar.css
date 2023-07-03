@@ -1,5 +1,5 @@
 ::-webkit-scrollbar {
-    width: 0.5rem;
+    width: 0.4rem;
   }
   
   /* Track */
@@ -19,3 +19,9 @@
   ::-webkit-scrollbar-thumb:hover {
     background: gray; 
   }
+
+@media screen and (max-width:630px) {
+  ::-webkit-scrollbar {
+    width: 0rem;
+  }
+}

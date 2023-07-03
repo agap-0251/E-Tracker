@@ -30,13 +30,17 @@ const TransBlock = ({ trans }) => {
     <div
       className={
         trans.isIncome
-          ? "flex flex-col justify-between bg-cgreen-dark my-1 p-3 rounded-lg mx-1"
-          : "flex flex-col justify-between bg-corange-light my-1 p-3 rounded-lg mx-1 "
+          ? 
+          "flex flex-col justify-between bg-cgreen-dark my-1 p-3 rounded-lg mx-1 xs:p-2 xxs:p-1"
+          : 
+          "flex flex-col justify-between bg-corange-light my-1 p-3 rounded-lg mx-1 xs:p-2 xxs:p-1"
       }
     >
       <div className="flex justify-between m-2">
-        <h1 className="text-3xl font-medium">{trans.title}</h1>
-        <p className="text-2xl">{trans.amount}</p>
+        <h1 className="text-3xl font-medium xs:text-2xl
+          xxs:text-2xl">{trans.title}</h1>
+        <p className="text-2xl xs:texl-xl
+          xxs:text-xl">{trans.amount}</p>
       </div>
       <div className="flex justify-between m-2">
         <div className="flex">
@@ -47,7 +51,7 @@ const TransBlock = ({ trans }) => {
         </div>
         <AiFillDelete
           onClick={handleDelete}
-          className="bg-cblack-light text-[2.4rem] p-1 rounded-lg cursor-pointer hover:bg-white hover:text-cblack-light"
+          className="bg-cblack-light text-[2.4rem] xxs:text-[2rem] p-1 rounded-lg cursor-pointer hover:bg-white hover:text-cblack-light"
         />
       </div>
     </div>

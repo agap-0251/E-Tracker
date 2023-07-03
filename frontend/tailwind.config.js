@@ -39,7 +39,8 @@ export default {
       'glg':'1200px',
       'gxl' : '1312px',
       'xs' : '470px',
-      'xxs' : '340px'
+      'xxs' : '340px',
+      'vs' : '200px'
     }
     
   }

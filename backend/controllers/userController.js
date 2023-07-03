@@ -16,7 +16,7 @@ const loginUser = async (req,res) => {
 
         const user = await User.login(email,password)
         const token = createToken(user._id)
-        const uname = user.uname
+        const {uname,} = user.uname
         res.status(200).json({email,uname,token})
 
     } catch(err) {
@@ -41,6 +41,31 @@ const signupUser = async (req,res) => {
 
 }
 
+const setImage = async (req,res) => {
+    const {email : uemail,base64 : image} = req.body
+    console.log(uemail,image)
+    
+    try {
+        const filter = {email : uemail}
+        const {email,password : pass} = await User.find(filter)
+        const update = {
+            email : uemail,
+            password : pass,
+            uImage : image
+        };
+        const json = await User.findOneAndUpdate(filter,update,{
+            new:true
+        })
+        console.log(json)
+        res.status(200).json(json)
+
+    } catch(err) {
+        res.status(400).json({error : err.message})
+    }
+
+
+}
+
 module.exports = {
-    loginUser,signupUser
+    loginUser,signupUser,setImage
 }

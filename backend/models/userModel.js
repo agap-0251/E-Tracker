@@ -17,6 +17,9 @@ const userSchema = new Schema({
     password : {
         type : String,
         required : true
+    },
+    uImage: {
+        type : String,
     }
 },{timestamps : true})
 
@@ -40,7 +43,8 @@ userSchema.statics.signup = async function(email,uname,password) {
     }
     const salt = await bcrypt.genSalt(10)
     const hash = await bcrypt.hash(password,salt)
-    const user = await this.create({email,uname,password : hash})
+    const uImage = null;
+    const user = await this.create({email,uname,uImage,password : hash})
 
     return user
 }
@@ -58,7 +62,7 @@ userSchema.statics.login = async function(email,password) {
     }
     const match = await bcrypt.compare(password,user.password)
     if(!match) {
-        throw Error('Invalid passwordd')
+        throw Error('Invalid password')
     }
 
     return user
