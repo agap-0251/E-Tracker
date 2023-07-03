@@ -6,6 +6,8 @@ const mongoose = require('mongoose')
 
 const app = express()
 
+const port = process.env.PORT || 3500
+
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 
@@ -15,7 +17,6 @@ app.use((req,res,next) => {
     next()
 })
 
-
 // db connection and routes
 
 app.use('/api/expenses',expenseRoutes)
@@ -23,7 +24,7 @@ app.use('/api/user',userRoutes)
 
 mongoose.connect(process.env.MONGO_URI)
     .then (() => {
-        app.listen(process.env.PORT || 3500,() => {
+        app.listen(port,() => {
             console.log(`Connected to db and Server started on port ${process.env.PORT || 3500}`)
         })
     })
