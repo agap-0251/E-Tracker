@@ -1,4 +1,4 @@
-import React,{useState} from 'react'
+import React from 'react'
 import NavContainer from './NavContainer'
 import SideBar from './SideBar'
 import {useNavContext} from '../hooks/useNavContext'
@@ -42,7 +42,6 @@ const MainContainer = ({children}) => {
       <MenuIcon showNav={showNav} setShowNav={setShowNav} />
       {showNav && <SideBar />}
       <NavContainer />
-      {/* <SideBar /> */}
       {children}
     </div>
   )

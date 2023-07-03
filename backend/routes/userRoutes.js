@@ -2,10 +2,10 @@ const express = require('express')
 const router = express.Router()
 const {loginUser,signupUser,setImage} = require('../controllers/userController')
 
-//get all todos
+//login user
 router.post('/login',loginUser)
 
-//get single todo
+//signup user
 router.post('/signup',signupUser)
 
 //set user Image

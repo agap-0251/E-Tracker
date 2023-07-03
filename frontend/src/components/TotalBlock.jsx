@@ -12,7 +12,7 @@ const TotalBlock = ({income}) => {
           md:text-[1.6rem] 
           sm:text-[1.3rem] sm:py-12 sm:mb-0
           xs:text-[1.3rem] xs:py-6 xs:mb-5
-          xxs:text-[1.1rem] xxs:py-6 xxs:mb-5 
+
           vs:text-[1.1rem] vs:py-6 vs:mb-5 
           ">
           Total Income is <span className='ml-2'>${expenses?.filter(trans => trans.isIncome)
@@ -28,7 +28,6 @@ const TotalBlock = ({income}) => {
         md:text-[1.6rem] 
         sm:text-[1.3rem] sm:py-12 sm:my-0
         xs:text-[1.3rem] xs:py-6 xs:my-0 xs:mb-4
-        xxs:text-[1.1rem] xxs:py-6 xxs:my-0 xxs:mb-4
         vs:text-[1.1rem] vs:py-6 vs:my-0 vs:mb-4
         ">
         Total Expense is <span className='ml-2'>${expenses?.filter(trans => !trans.isIncome)

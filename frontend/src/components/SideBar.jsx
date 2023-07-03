@@ -6,15 +6,50 @@ import {MdPayments} from 'react-icons/md'
 import { NavLink } from 'react-router-dom'
 import { useNavContext } from '../hooks/useNavContext'
 import { useLogout } from "../hooks/useLogout";
+import Profile from "./Profile"
+import { useAuthContext } from '../hooks/useAuthContext'
+import { useState,useEffect } from 'react'
  
 
 const SideBar = () => {
   const [showNav,setShowNav] = useNavContext()
   const {logout} = useLogout()
+  const [postImage,setPostImage] = useState({myFile : ""})
+  const { user,dispatch } = useAuthContext();
+    
+  useEffect(() => {
+    setPostImage({...postImage,myFile:user.uImage})
+  },[user])
 
   function handleClick(e) {
     e.preventDefault();
     logout();
+  }
+
+  const uploadImage = async (base64) => {
+    const {email} = user
+    // console.log(base64)
+    const res = await fetch('/api/user/image',{
+      method : 'POST',
+      headers : {'Content-Type' : 'application/json'},
+      body : JSON.stringify({email,base64})
+    })
+    const json = await res.json()
+    if(res.ok) {
+      setPostImage({...postImage,myFile : base64})
+      dispatch({type:'LOGIN',payload : {...user,json}})
+    }
+    if(!res.ok) {
+      console.log(json.error)
+
+    }
+}
+
+  const handleUpload = async(e) => {
+    e.preventDefault();
+    const file = e.target.files[0]
+    const base64 = await convertToBase64(file);
+    uploadImage(base64)
   }
 
   return (
@@ -28,12 +63,14 @@ const SideBar = () => {
           <AiOutlineClose className="w-8 h-8 text-white ml-5 mt-5" />
         </button>
 
+        <Profile user = {user} handleUpload={handleUpload} postImage={postImage} />
+
       <ul className="
-      flex flex-col text-xl justify-evenly  h-3/5 row-span-3 text-cwheat-light pl-5">
-            <li className={"text-corange-light"}><NavLink  to={'/'} className="hover:text-gray-300  flex items-center"><BsGraphUpArrow className="mr-1" /> Dashboard</NavLink></li>
-            <li className={"text-corange-light"}><NavLink  to={'/transactions'} className="hover:text-gray-300 flex items-center"><BiTransfer className="mr-1" /> Transactions</NavLink></li>
-            <li className={"text-corange-light"}><NavLink  to={'/income'} className="hover:text-gray-300 flex items-center"><FaMoneyCheck className="mr-1" /> Income</NavLink></li>
-            <li className={"text-corange-light"}><NavLink  to={'/expense'} className="hover:text-gray-300 flex items-center"><MdPayments className="mr-1" /> Expenses</NavLink></li>
+      flex flex-col text-xl justify-center  h-3/5 row-span-3 text-cwheat-light pl-12">
+            <li className={"text-corange-light my-9"}><NavLink  to={'/'} className="hover:text-gray-300  flex items-center"><BsGraphUpArrow className="mr-1" /> Dashboard</NavLink></li>
+            <li className={"text-corange-light my-9"}><NavLink  to={'/transactions'} className="hover:text-gray-300 flex items-center"><BiTransfer className="mr-1" /> Transactions</NavLink></li>
+            <li className={"text-corange-light my-9"}><NavLink  to={'/income'} className="hover:text-gray-300 flex items-center"><FaMoneyCheck className="mr-1" /> Income</NavLink></li>
+            <li className={"text-corange-light my-9"}><NavLink  to={'/expense'} className="hover:text-gray-300 flex items-center"><MdPayments className="mr-1" /> Expenses</NavLink></li>
       </ul>
 
       {/* signout */}
@@ -54,41 +91,6 @@ const SideBar = () => {
     </div>
   )
 
-
-
-//   const [showMobileMenu, setShowMobileMenu] = useState(false);
-//   return (
-//     <nav className="bg-gray-400">
-//       <div className="max-w-7xl mx-auto flex items-center justify-between h-16 px-4 border-b border-solid border-slate-600">
-//         <div className="flex-shrink-0 font-bold tracking-wider">
-//           LOGO
-//         </div>
-//         <div className="hidden lg:block">
-//           <NavContainer />
-//         </div>
-//         <button
-//           type="button"
-//           className="lg:hidden bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none focus:bg-gray-700 focus:text-white transition duration-150 ease-in-out"
-//           onClick={() => setShowMobileMenu(!showMobileMenu)}>
-//           <svg
-//             className="h-6 w-6"
-//             stroke="currentColor"
-//             fill="none"
-//             viewBox="0 0 24 24">
-//             <path
-//               strokeLinecap="round"
-//               strokeLinejoin="round"
-//               strokeWidth="2"
-//               d="M4 6h16M4 12h16M4 18h16"
-//             ></path>
-//           </svg>
-//         </button>
-//       </div>
-//       <div className="lg:hidden">
-//         {showMobileMenu && <Menu />}
-//       </div>
-//     </nav>
-//   );
 }
 
 export default SideBar;

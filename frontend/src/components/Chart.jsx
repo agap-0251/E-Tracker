@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useAuthContext } from '../hooks/useAuthContext';
 import "./chart.css"
 
@@ -31,18 +31,16 @@ const Chart = () => {
       md:col-span-1 md:max-w-full md:h-[24rem] md:shadow-inner md:shadow-black
       sm:col-span-2 sm:max-w-[28rem] sm:mr-0 sm:shadow-none sm:[margin:auto]
       xs:[margin:auto]
-      xxs:max-w-[28rem] xxs:h-[10rem] xxs:mr-0 xxs:shadow-none 
       vs:max-w-[28rem] vs:h-[10rem] vs:mr-0 vs:shadow-none
       '>
          <h1 className='text-3xl text-cgreen-light my-2 ml-6'>Weekly Analysis</h1>
           <ResponsiveContainer className='p-1 w-full h-full 
-            2xl:max-h-[19rem]
+
             xl:max-h-[19rem]
             lg:max-h-[20rem]
             sm:h-[29rem]
             md:max-h-[20rem]
             xs:h-[10rem]
-            xxs:h-[8rem] xxs:text-sm
             vs:h-[8rem] vs:text-sm
             
             ' >

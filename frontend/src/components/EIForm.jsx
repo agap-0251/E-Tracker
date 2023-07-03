@@ -9,7 +9,7 @@ const EIForm = ({isIn}) => {
     const [category,setCategory] = useState('')
     const [isIncome,setIsIncome] = useState(isIn)
     const {user} = useAuthContext()
-    const {expenses,dispatch} = useExpenseContext()
+    const {dispatch} = useExpenseContext()
 
     const handleSubmit =  async (e) => {
         e.preventDefault();

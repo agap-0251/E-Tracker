@@ -5,23 +5,22 @@ const {getAllExpenses,getSingleExpense,getWeelyExpenses,createExpense,deleteExpe
 
 router.use(requireAuth)
 
-//get all todos
+//get all expenses
 router.get('/',getAllExpenses)
 
 //get Weekly routes
 router.get('/weekly',getWeelyExpenses)
 
-//get single todo
+//get single expense
 router.get('/:id',getSingleExpense)
 
-
-//post single todo
+//post single expense
 router.post('/',createExpense)
 
-//delete todo
+//delete expense
 router.delete('/:id',deleteExpense)
 
-//update todo
+//update expense
 router.patch('/:id',updateExpense)
 
 module.exports = router

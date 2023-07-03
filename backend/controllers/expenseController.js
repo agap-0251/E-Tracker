@@ -4,7 +4,6 @@ const Expense = require('../models/expenseModel')
 // all expenses
 
 const getAllExpenses = async (req,res) => {
-    // const expense = await Expense.find().sort({createdAt : -1})
     const user_id = req.user._id
     const expense = await Expense.find({user_id}).sort({createdAt : -1})
     if(!expense) {
@@ -27,7 +26,6 @@ const getSingleExpense = async (req,res) => {
 }
 
 const getWeelyExpenses = async (req,res) => {
-    // const expense = await Expense.find().sort({createdAt : -1})
     const u_id = req.user._id
     const expense = (await Expense.find({user_id : u_id}).sort({createdAt : -1}))
     const date = new Date()
@@ -65,7 +63,6 @@ const createExpense = async (req,res) => {
     }
 
     try {
-        // const expense = await Expense.create({title,amount,category,isIncome,payDate})
         const expense = await Expense.create({title,amount,category,isIncome,payDate,user_id})
         res.status(200).json(expense)
     } catch(error) {

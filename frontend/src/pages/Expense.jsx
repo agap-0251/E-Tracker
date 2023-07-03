@@ -59,8 +59,6 @@ const Expense = () => {
       <div className="grid glg:grid-cols-3 row-span-3
          lg:grid-cols-2
         md:grid-cols-2 md:row-span-5
-        sm:grid-cols-1
-        xs:grid-cols-1
         xxs:grid-cols-1">
         <EIForm isIn={false} />
         <RecentHistory recent={recent} />

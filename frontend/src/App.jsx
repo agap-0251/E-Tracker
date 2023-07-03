@@ -19,13 +19,6 @@ function App() {
         <Route path = '/income'  element = {(user) ? <MainContainer children={<Income />} /> : <Navigate to="/register" />} />
         <Route path = '/expense'  element = {(user) ? <MainContainer children={<Expense />} /> : <Navigate to="/register" />} />
         <Route path="/register" element = {(!user) ? <LandingPage />  : <Navigate to="/" />} />
-        {/* <Route path="/user/signup" element = {(!user) ? <LandingPage children = {<Signup />} />  : <Navigate to="/" />} /> */}
-        {/* <Route path='/'  element = {(user) ? <MainContainer children={<Home />} /> : <Navigate to="/user/login" />} />
-        <Route path = '/transactions'  element = {(user) ?<MainContainer children={<Transactions />} /> : <Navigate to="/user/login" />} />
-        <Route path = '/income'  element = {(user) ? <MainContainer children={<Income />} /> : <Navigate to="/user/login" />} />
-        <Route path = '/expense'  element = {(user) ? <MainContainer children={<Expense />} /> : <Navigate to="/user/login" />} />
-        <Route path="/user/login" element = {(!user) ? <LandingPage children = {<Login />} />  : <Navigate to="/" />} />
-        <Route path="/user/signup" element = {(!user) ? <LandingPage children = {<Signup />} />  : <Navigate to="/" />} /> */}
       </Routes>
     </div>
   )

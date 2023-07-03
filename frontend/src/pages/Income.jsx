@@ -12,8 +12,7 @@ const RecentHistory = ({recent}) => {
     lg:h-[38.2rem]  
     lg:ml-[-0.9rem] lg:pl-4 lg:col-span-1
       md:ml-[-1rem] md:h-[38.2rem]
-      sm:h-[27rem] 
-      xs:h-[27rem]
+
       xxs:h-[27rem] xxs:ml-[0rem]
       ml-[0rem]
       '>
@@ -62,8 +61,6 @@ const Income = () => {
        <div className="grid glg:grid-cols-3 row-span-3
           lg:grid-cols-2
          md:grid-cols-2 md:row-span-5
-         sm:grid-cols-1
-         xs:grid-cols-1
          xxs:grid-cols-1">
          <EIForm isIn={true} />
          <RecentHistory recent={recent} />
