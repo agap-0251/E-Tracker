@@ -1,0 +1,59 @@
+
+.login-container,.signup-container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-form,.signup-form {
+    width: 25rem;
+    height: 25rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #f1f1f1;
+    border-radius: 0.5rem;
+}
+
+.login-container h3,.signup-container h3 {
+    font-size: 1.8rem;
+}
+
+.login-container input,.signup-container input {
+    font-size: 1.2rem;
+    border: none;
+    border-bottom: 1px solid rgb(206, 204, 204);
+    background: none;
+    color: black;
+    outline: none;
+}
+
+.login-container button,.signup-container button {
+    padding: 0.7rem 2rem;
+    background-color: rgb(55, 151, 55);
+    border: none;
+    border-radius: 0.5rem;
+    color: white;
+    cursor: pointer;
+}
+
+.login-container button:hover,.signup-container button:hover {
+    opacity: 0.8;
+}
+
+.error {
+    font-size: 0.8rem;
+    color: rgb(224, 81, 81);
+    border: 1px solid rgb(236, 105, 105);
+    border-radius: 0.3rem;
+    background-color: rgb(255, 192, 192);
+    margin: 0.3rem 0 0 0;
+    padding: 0.7rem;
+  }
+  
+input.error-msg {
+    border-bottom: 2px solid rgb(236, 105, 105);
+}
