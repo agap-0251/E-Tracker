@@ -8,7 +8,7 @@ const Chart = () => {
     const [data,setData] = useState([])
     useEffect(() => {
       const fetchExpenses = async () => {
-        const res = await fetch('/api/expenses/weekly',{
+        const res = await fetch('https://exp-backend.onrender.com/api/expenses/weekly',{
             headers : {
                 'Authorization' : `Bearer ${user.token}`
             }
