@@ -5,7 +5,7 @@ import react from '@vitejs/plugin-react'
 export default defineConfig({
   server : {
     proxy: {
-      '/api' :"https://e-tracker-backend-git-main-agap-0251.vercel.app",
+      '/api' :"https://e-tracker-backend.vercel.app/api",
     }
 
   },
