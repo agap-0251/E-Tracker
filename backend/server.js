@@ -6,6 +6,9 @@ const mongoose = require('mongoose')
 
 const app = express()
 
+const cors = require('cors');
+app.use(cors());
+
 const port = process.env.PORT || 3500
 
 app.use(express.json())
