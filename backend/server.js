@@ -3,6 +3,7 @@ const express = require('express')
 const expenseRoutes = require('./routes/expenseRoutes')
 const userRoutes = require('./routes/userRoutes')
 const mongoose = require('mongoose')
+const cors = require('cors')
 
 const app = express()
 
@@ -14,7 +15,7 @@ app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 
 //middleware
-
+app.use(cors())
 app.use((req,res,next) => {
     console.log(req.method,req.path)
     next()
