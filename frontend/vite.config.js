@@ -7,7 +7,8 @@ export default defineConfig({
     proxy: {
       '/api' :{
         target : "http://exp-api-qlei.onrender.com",
-   secure : false}
+   secure : false,
+      changeOrigin : true}
       }
 
   },
