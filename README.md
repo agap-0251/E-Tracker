@@ -41,4 +41,4 @@ I'm using Mongodb Atlas to store data , so just add your own connection string.
 Also add your own SECRET key which will be used while hashing the password.This website also has user authentication and authorization
 using Bcrypt, Jwt, validator.So, have fun...
 
-
+#### The website is live on vercel https://e-tracker-frontend-git-main-agap-0251.vercel.app/  
