@@ -34,7 +34,7 @@ const Home = () => {
 
   useEffect(() => {
     const fetchExpenses = async () => {
-        const res = await fetch('/api/expenses',{
+        const res = await fetch(' https://exp-api-qlei.onrender.com/api/expenses',{
             headers : {
                 'Authorization' : `Bearer ${user.token}`
             }
