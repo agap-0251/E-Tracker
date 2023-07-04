@@ -8,7 +8,7 @@ export const useLogin = () => {
     
     const login = async ({email,password}) => {
         setIsLoading(true)
-        const res = await fetch('https://exp-api-qlei.onrender.com/api/user/login',{
+        const res = await fetch('https://exp-backend.onrender.com//api/user/login',{
             method : 'POST',
             headers : {'Content-Type' : 'application/json',
                       'accept' : 'application/json'},
