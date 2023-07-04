@@ -3,19 +3,22 @@ import EIForm from '../components/EIForm'
 import TransBlock from '../components/TransBlock'
 import { useExpenseContext } from '../hooks/useExpenseContext'
 import '../components/scrollbar.css'
+import {useNavContext} from '../hooks/useNavContext'
 
 const RecentHistory = ({recent}) => {
-  
-  return (
-    <div className='glg:col-span-2 overflow-y-auto scroll flex flex-col glg:ml-3 px-4 shadow-inner shadow-black border-gray-400
-    xl:ml-1
-    lg:h-[38.2rem]  
-    lg:ml-[-0.9rem] lg:pl-4 lg:col-span-1
-      md:ml-[-1rem] md:h-[38.2rem]
+  const [showNav] = useNavContext()
+ 
+  const style = "glg:col-span-2 flex flex-col glg:ml-3 px-4 shadow-inner shadow-black border-gray-400 \
+  xl:ml-1\
+  lg:h-[38.2rem]  \
+  lg:ml-[-0.9rem] lg:pl-4 lg:col-span-1\
+  md:ml-[-1rem] md:h-[38.2rem]\
+  xxs:h-[27rem] xxs:ml-[0rem]\
+  ml-[0rem]\
+"
 
-      xxs:h-[27rem] xxs:ml-[0rem]
-      ml-[0rem]
-      '>
+  return (
+    <div  className= {style}>
       <h1 className='text-3xl font-semibold text-cgreen-light my-2
         xxs:text-2xl'>Recent Incomes</h1>
       {recent?.map(trans => <TransBlock key={trans._id} trans = {trans} />)

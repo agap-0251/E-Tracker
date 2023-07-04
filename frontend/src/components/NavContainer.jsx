@@ -79,7 +79,7 @@ const NavContainer = () => {
 
           <Profile user = {user} handleUpload={handleUpload} postImage={postImage} />
 
-          <ul className="flex flex-col text-xl  justify-evenly h-full row-span-3 text-cwheat-light">
+          <ul className="flex flex-col text-xl  justify-between mt-32 h-full row-span-3 text-cwheat-light">
             <li className={act === 0 ? "text-corange-light" : ""}>
               <NavLink
                 onClick={() => {

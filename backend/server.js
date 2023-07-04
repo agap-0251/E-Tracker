@@ -7,15 +7,18 @@ const cors = require('cors')
 
 const app = express()
 
-
-
 const port = process.env.PORT || 3500
 
 app.use(express.json())
 app.use(express.urlencoded({extended : true}))
 
 //middleware
-app.use(cors())
+app.use(cors({
+    origin : ['https://e-tracker-frontend.vercel.app',
+              'https://e-tracker-frontend-git-main-agap-0251.vercel.app',
+              'https://e-tracker-frontend-2u1v7qzhm-agap-0251.vercel.app',
+              'http://localhost:5173']
+}))
 app.use((req,res,next) => {
     console.log(req.method,req.path)
     next()

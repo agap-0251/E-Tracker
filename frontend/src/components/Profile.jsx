@@ -3,8 +3,9 @@ import React from 'react'
 const Avatar = () => {
     return (
       <svg
-                className="p-1 glg:w-[5rem] glg:h-[5rem] bg-gray-500 shadow-lg shadow-black rounded-full
-            lg:w-[4.5rem] lg:h-[4.5rem]"
+        className="p-1 glg:w-[5rem] glg:h-[5rem] bg-gray-500 shadow-lg shadow-black rounded-full
+            lg:w-[4.5rem] lg:h-[4.5rem] lg:ml-6
+            vs:w-[4.5rem] vs:h-[4.5rem] vs:ml-10 vs:mt-4"
                 xmlns="http://www.w3.org/2000/svg"
                 data-name="Filled stroke cutting expand"
                 viewBox="0 0 512 512"
@@ -78,7 +79,7 @@ const Profile = ({postImage,handleUpload,user}) => {
             </form>
             <p
               className="glg:text-2xl text-gray-300 pl-5
-            lg:text-xl lg:mt-0
+            lg:text-xl lg:mt-0 lg:mr-4
             vs:text-2xl vs:mt-3"
 
             >

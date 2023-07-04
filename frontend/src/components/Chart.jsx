@@ -26,9 +26,9 @@ const Chart = () => {
 
     return (
       <div className='border-box min-h-[20rem] mr-1 shadow-inner shadow-black
-      lg:w-full lg:h-full
+      lg:w-full lg:h-[24rem] lg:mt-0
       xl:h-[23rem] xl:mt-0
-      md:col-span-1 md:max-w-full md:h-[24rem] md:shadow-inner md:shadow-black
+      md:col-span-1 md:max-w-full md:h-[24rem] md:shadow-inner md:shadow-black md:mt-0
       sm:col-span-2 sm:max-w-[28rem] sm:mr-0 sm:shadow-none sm:[margin:auto]
       xs:[margin:auto]
       vs:max-w-[28rem] vs:h-[10rem] vs:mr-0 vs:shadow-none

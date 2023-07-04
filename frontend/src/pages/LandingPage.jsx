@@ -2,7 +2,6 @@ import React, { useState } from 'react'
 import { TypeAnimation } from 'react-type-animation';
 import Login from '../components/Login';
 import Signup from '../components/Signup';
-  
 
 const TypeText = () => {
   const [textColor,setTextColor] = useState('#e35933')
