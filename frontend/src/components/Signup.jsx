@@ -25,13 +25,13 @@ const Signup = () => {
         <h3 className='text-3xl font-semibold'>SignUp</h3>
 
          <input className='xs:text-2xl border-b-2 border-gray-400 bg-gray-200  text-black outline-none
-          xxs:text-xl' type='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email...' />
+          xxs:text-[1rem]' type='email' value={email} onChange={(e) => setEmail(e.target.value)} placeholder='Email...' />
 
          <input className='xs:text-2xl border-b-2 border-gray-400 bg-gray-200  text-black outline-none
-          xxs:text-xl' type='text' value={uname} onChange={(e) => setUName(e.target.value)} placeholder='Username...' />
+          xxs:text-[1rem]' type='text' value={uname} onChange={(e) => setUName(e.target.value)} placeholder='Username...' />
 
          <input className='xs:text-2xl border-b-2 border-gray-400 bg-gray-200  text-black outline-none
-          xxs:text-xl' type='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password...' />
+          xxs:text-[1rem]' type='password' value={password} onChange={(e) => setPassword(e.target.value)} placeholder='Password...' />
 
         <button className='bg-blue-600 hover:opacity-90 text-white xs:text-xl xs:px-6 xs:py-2 rounded-lg
           xxs:text-lg xxs:px-4 xxs:py-1 px-2 py-1' type='submit' disabled = {isLoading} >Signup</button>
