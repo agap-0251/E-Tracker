@@ -51,10 +51,19 @@ const Income = () => {
 
   const {expenses,dispatch} = useExpenseContext()
   const [recent,setRecent] = useState(null);
+  const [showNav] = useNavContext()
   useEffect(() => {
     setRecent(expenses?.filter(trans => trans.isIncome));
   },[expenses,dispatch])
 
+  useEffect(() => {
+    if(showNav) {
+      document.body.style.overflow = "hidden";
+    }
+    else {
+      document.body.style.overflow = "visible";
+    }
+  },[showNav])
 
   return (
     <div className='bg-cblack-light shadow-inner shadow-black lg:col-span-3  border-gray-300 text-white rounded-3xl 

@@ -1,3 +1,7 @@
 .alignCenter {
     margin: auto;
 }
+
+.hideScroll {
+    overflow-y: hidden;
+}
