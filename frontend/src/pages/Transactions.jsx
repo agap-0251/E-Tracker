@@ -7,6 +7,16 @@ import {useNavContext} from '../hooks/useNavContext'
 const Transactions = () => {
   const {expenses,dispatch} = useExpenseContext()
   const [showNav] = useNavContext()
+
+  useEffect(() => {
+    if(showNav) {
+      document.body.style.overflow = "hidden";
+    }
+    else {
+      document.body.style.overflow = "visible";
+    }
+  },[showNav])
+
   // console.log(expenses)
   const style = "bg-cblack-light shadow-inner shadow-black col-span-3 px-4 border-gray-300 text-white rounded-3xl flex flex-col"
 

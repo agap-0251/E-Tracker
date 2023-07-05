@@ -21,6 +21,7 @@ const SideBar = () => {
     setPostImage({...postImage,myFile:user.uImage})
   },[user])
 
+
   function handleClick(e) {
     e.preventDefault();
     logout();
