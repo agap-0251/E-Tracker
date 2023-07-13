@@ -18,7 +18,7 @@ const Transactions = () => {
   },[showNav])
 
   // console.log(expenses)
-  const style = "bg-cblack-light shadow-inner shadow-black col-span-3 px-4 border-gray-300 text-white rounded-3xl flex flex-col"
+  const style = "bg-cblack-light shadow-inner overflow-y-auto scroll shadow-black col-span-3 px-4 border-gray-300 text-white rounded-3xl flex flex-col"
 
   return (
     <div 
