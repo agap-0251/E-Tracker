@@ -21,6 +21,9 @@ const SideBar = () => {
     setPostImage({...postImage,myFile:user.uImage})
   },[user])
 
+  function handleNav() {
+    setShowNav(false);
+  }
 
   function handleClick(e) {
     e.preventDefault();
@@ -68,10 +71,10 @@ const SideBar = () => {
 
       <ul className="
       flex flex-col text-xl justify-center  h-3/5 row-span-3 text-cwheat-light pl-12">
-            <li className={"text-corange-light my-9"}><NavLink  to={'/'} className="hover:text-gray-300  flex items-center"><BsGraphUpArrow className="mr-1" /> Dashboard</NavLink></li>
-            <li className={"text-corange-light my-9"}><NavLink  to={'/transactions'} className="hover:text-gray-300 flex items-center"><BiTransfer className="mr-1" /> Transactions</NavLink></li>
-            <li className={"text-corange-light my-9"}><NavLink  to={'/income'} className="hover:text-gray-300 flex items-center"><FaMoneyCheck className="mr-1" /> Income</NavLink></li>
-            <li className={"text-corange-light my-9"}><NavLink  to={'/expense'} className="hover:text-gray-300 flex items-center"><MdPayments className="mr-1" /> Expenses</NavLink></li>
+            <li className={"text-corange-light my-9"}><NavLink onClick={handleNav}  to={'/'} className="hover:text-gray-300  flex items-center"><BsGraphUpArrow className="mr-1" /> Dashboard</NavLink></li>
+            <li className={"text-corange-light my-9"}><NavLink onClick={handleNav}  to={'/transactions'} className="hover:text-gray-300 flex items-center"><BiTransfer className="mr-1" /> Transactions</NavLink></li>
+            <li className={"text-corange-light my-9"}><NavLink onClick={handleNav}  to={'/income'} className="hover:text-gray-300 flex items-center"><FaMoneyCheck className="mr-1" /> Income</NavLink></li>
+            <li className={"text-corange-light my-9"}><NavLink onClick={handleNav}  to={'/expense'} className="hover:text-gray-300 flex items-center"><MdPayments className="mr-1" /> Expenses</NavLink></li>
       </ul>
 
       {/* signout */}

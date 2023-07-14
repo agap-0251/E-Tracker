@@ -3,6 +3,7 @@ import TransBlock from '../components/TransBlock'
 import { useExpenseContext } from '../hooks/useExpenseContext'
 import '../components/scrollbar.css'
 import {useNavContext} from '../hooks/useNavContext'
+import "../components/chart.css"
 
 const Transactions = () => {
   const {expenses,dispatch} = useExpenseContext()
@@ -18,7 +19,7 @@ const Transactions = () => {
   },[showNav])
 
   // console.log(expenses)
-  const style = "bg-cblack-light shadow-inner overflow-y-auto scroll shadow-black col-span-3 px-4 border-gray-300 text-white rounded-3xl flex flex-col"
+  const style = "bg-cblack-light overflow-y-auto scroll max-h-[100vh] shadow-inner shadow-black col-span-3 px-4 border-gray-300 text-white rounded-3xl flex flex-col"
 
   return (
     <div 

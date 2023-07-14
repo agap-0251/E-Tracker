@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { TypeAnimation } from 'react-type-animation';
 import Login from '../components/Login';
 import Signup from '../components/Signup';
+import { ToastContainer } from 'react-toastify';
 
 const TypeText = () => {
   const [textColor,setTextColor] = useState('#e35933')
@@ -91,6 +92,7 @@ const LandingPage = () => {
                       xxs:text-lg xxs:mt-2 mt-2'>Already had an account ?</button>}
         </div>
       </div>
+      <ToastContainer />
     </div>
   )
 }

@@ -8,6 +8,9 @@ import { BiTransfer } from "react-icons/bi";
 import { FaMoneyCheck } from "react-icons/fa";
 import { MdPayments } from "react-icons/md";
 import Profile from "./Profile";
+import { showToastMessage } from "./ToastMsg";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 
 const NavContainer = () => {
@@ -28,6 +31,7 @@ const NavContainer = () => {
   function handleClick(e) {
     e.preventDefault();
     logout();
+    showToastMessage('Signed out...')
   }
 
   const uploadImage = async (base64) => {
@@ -59,7 +63,7 @@ const NavContainer = () => {
 
 
   return (
-    <>
+
       <div 
         className="bg-cblack-light shadow-inner shadow-black border-gray-300 text-white h-full 
             w-full rounded-3xl lg:block
@@ -137,8 +141,8 @@ const NavContainer = () => {
           
           SignOut
         </button>
+        <ToastContainer />
       </div>
-    </>
   );
 };
 

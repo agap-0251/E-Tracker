@@ -6,6 +6,8 @@ import TransBlock from "../components/TransBlock";
 import TotalBlock from "../components/TotalBlock";
 import { useNavContext } from "../hooks/useNavContext";
 import "../components/chart.css"
+import { ToastContainer } from "react-toastify";
+
 
 const RecentBlock = ({ arr }) => {
   return (
@@ -67,8 +69,11 @@ const Home = () => {
     }
     else {
       document.body.style.overflow = "visible";
+      
     }
-  },[showNav])
+  },[])
+
+
 
   const style = "bg-cblack-light md:h-[100vh] shadow-inner shadow-black lg:col-span-3 border-gray-300 text-white rounded-3xl md:grid md:grid-cols-2 md:grid-rows-2\
    sm:grid sm:grid-rows-3 sm:max-h-[140vh] sm:min-h-[100vh] \
@@ -83,15 +88,16 @@ const Home = () => {
     >
       <Chart />
       <RecentBlock arr={expenses} />
-      <div
+      <div 
         className="col-span-2 mb-32 sm:grid sm:grid-cols-2 sm:grid-rows-1 
         sm:mt-20 sm:mb-24
         vs:mt-8 vs:mb-[-1rem] vs:flex vs:flex-col 
-        "
+        " 
       >
         <TotalBlock income={true} />
         <TotalBlock income={false} />
       </div>
+      <ToastContainer />
     </div>
   );
 };

@@ -1,6 +1,9 @@
 import React,{useState} from 'react'
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useExpenseContext } from '../hooks/useExpenseContext'
+import { showAddedMsg } from "./ToastMsg";
+import { ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 const EIForm = ({isIn}) => {
     const [title,setTitle] = useState('')
@@ -10,9 +13,14 @@ const EIForm = ({isIn}) => {
     const [isIncome,setIsIncome] = useState(isIn)
     const {user} = useAuthContext()
     const {dispatch} = useExpenseContext()
+    const [error,setError] = useState(null)
+    const [isLoading,setIsLoading] = useState(null)
+
+    
 
     const handleSubmit =  async (e) => {
         e.preventDefault();
+        setIsLoading(true)
         const expense = {title,amount,payDate,isIncome,category}
         // console.log(expense)
         const res = await fetch('https://exp-backend.onrender.com/api/expenses',{
@@ -25,12 +33,19 @@ const EIForm = ({isIn}) => {
         })
         const json = await res.json()
         console.log(json)
+        if(!res.ok) {
+            setError(json.error)
+            setIsLoading(false);
+        }
         if(res.ok) {
             setAmount('');
             setCategory('');
             setPayDate('');
             setTitle('');
             dispatch({type : 'CREATE_EXPENSE',payload : json})
+            setError('')
+            setIsLoading(false);
+            isIn ? showAddedMsg('Income') : showAddedMsg('Expense')
         }
         
     }
@@ -64,9 +79,10 @@ const EIForm = ({isIn}) => {
                 <option value="Education">Education</option>
                 <option value="Other">Other</option>
             </select>
-            <button className='bg-cgreen-dark text-white shadow-inner shadow-green-100 opacity-80 py-2 px-3 rounded-full hover:opacity-90 
-                '>{isIncome ? 'Add Income' : 'Add Expense'}</button>
+            <button disabled = {isLoading} className='bg-cgreen-dark text-white shadow-inner shadow-green-100 opacity-80 py-2 px-3 rounded-full hover:opacity-90 
+                '>{isIncome ? (isLoading ? "Adding..." : 'Add Income') : (isLoading ? "Adding..." : 'Add Expense')}</button>
         </form>
+        <ToastContainer />
     </div>
   )
 }

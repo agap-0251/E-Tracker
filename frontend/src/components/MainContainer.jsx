@@ -1,7 +1,8 @@
-import React from 'react'
+import React,{useEffect} from 'react'
 import NavContainer from './NavContainer'
 import SideBar from './SideBar'
 import {useNavContext} from '../hooks/useNavContext'
+import { NavLink } from 'react-router-dom'
 
 const MenuIcon = ({showNav,setShowNav}) => {
   return (
@@ -27,7 +28,7 @@ const MenuIcon = ({showNav,setShowNav}) => {
       <h2 className='sm:text-[2.7rem] text-corange-light sm:ml-16
         xs:text-[2rem] xs:ml-12
         xxs:text-[1.7rem] xxs:ml-10 xxs:mt-[0.1rem]
-        text-[1.7rem] ml-10 mt-[0.1rem]'>E-Tracker</h2>
+        text-[1.7rem] ml-10 mt-[0.1rem]'><NavLink to = "/" >E-Tracker</NavLink></h2>
     </div>
   )
 }
@@ -37,9 +38,8 @@ const MenuIcon = ({showNav,setShowNav}) => {
 const MainContainer = ({children}) => {
   const [showNav,setShowNav] = useNavContext()
 
-
   return (
-    <div className='lg:grid lg:grid-cols-4 min-h-[100vh] gap-3 p-[1rem] bg-cblack-lighter block'>
+    <div className='lg:grid lg:grid-cols-4  gap-3 p-[1rem] bg-cblack-lighter block'>
       <MenuIcon showNav={showNav} setShowNav={setShowNav} />
       {showNav && <SideBar />}
       <NavContainer />
