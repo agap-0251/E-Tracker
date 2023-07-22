@@ -71,7 +71,7 @@ const Home = () => {
       document.body.style.overflow = "visible";
       
     }
-  },[])
+  },[showNav])
 
 
 
