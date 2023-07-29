@@ -39,7 +39,7 @@ const MainContainer = ({children}) => {
   const [showNav,setShowNav] = useNavContext()
 
   return (
-    <div className='lg:grid lg:grid-cols-4  gap-3 p-[1rem] bg-cblack-lighter block'>
+    <div className='lg:grid lg:grid-cols-4 gap-3 p-[1rem] bg-cblack-lighter block'>
       <MenuIcon showNav={showNav} setShowNav={setShowNav} />
       {showNav && <SideBar />}
       <NavContainer />

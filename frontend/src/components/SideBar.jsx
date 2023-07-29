@@ -9,7 +9,7 @@ import { useLogout } from "../hooks/useLogout";
 import Profile from "./Profile"
 import { useAuthContext } from '../hooks/useAuthContext'
 import { useState,useEffect } from 'react'
- 
+
 
 const SideBar = () => {
   const [showNav,setShowNav] = useNavContext()
@@ -57,7 +57,7 @@ const SideBar = () => {
   }
 
   return (
-    <div className='bg-cblack-lighter absolute left-0 top-0 translate-x transition-transform
+    <div className='bg-cblack-lighter absolute left-0  top-0 translate-x transition-transform 
     h-full z-10 w-[18rem] p-3 lg:hidden'>
 
     <div className="bg-cblack-light shadow-inner shadow-black border-gray-300 text-white h-full 
