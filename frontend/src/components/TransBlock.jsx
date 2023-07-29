@@ -13,7 +13,7 @@ const TransBlock = ({ trans }) => {
       return;
     }
 
-    const res = await fetch("/api/expenses/" + trans._id, {
+    const res = await fetch("https://exp-backend.onrender.com/api/expenses/" + trans._id, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${user.token}`,
@@ -22,7 +22,7 @@ const TransBlock = ({ trans }) => {
     const json = await res.json();
     if (res.ok) {
       console.log(json);
-      dispatch({ type: "DELETE_EXPENSE", payload: json });
+      dispatch({ type: "DELETE_EXPENSE", payload: trans._id });
     }
   };
 

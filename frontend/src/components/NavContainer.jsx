@@ -2,7 +2,6 @@ import React, {useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogout } from "../hooks/useLogout";
-import { useNavContext } from "../hooks/useNavContext";
 import { BsGraphUpArrow } from "react-icons/bs";
 import { BiTransfer } from "react-icons/bi";
 import { FaMoneyCheck } from "react-icons/fa";
@@ -15,7 +14,6 @@ import 'react-toastify/dist/ReactToastify.css';
 
 const NavContainer = () => {
   const [act, setAct] = useState(0);
-  const [showNav,setShowNav] = useNavContext()
   const [postImage,setPostImage] = useState({myFile : ""})
   const { user,dispatch } = useAuthContext();
   const { logout } = useLogout();

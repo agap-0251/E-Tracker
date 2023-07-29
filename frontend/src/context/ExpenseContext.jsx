@@ -13,9 +13,9 @@ export const expenseReducer = (state,action) => {
                 expenses : [action.payload,...state.expenses]
             }
         case 'DELETE_EXPENSE' :
-            console.log(action.payload)
+            // console.log(action.payload)
             return {
-                expenses : state.expenses.filter((w) => w._id !== action.payload._id)
+                expenses : state.expenses.filter((w) => w._id !== action.payload)
             }
         default :
             return state
