@@ -23,7 +23,7 @@ const EIForm = ({isIn}) => {
         setIsLoading(true)
         const expense = {title,amount,payDate,isIncome,category}
         // console.log(expense)
-        const res = await fetch('https://exp-backend.onrender.com/api/expenses',{
+        const res = await fetch('https://exp-backend.onrender.com/api/expenses/hello',{
             method : 'POST',
             body : JSON.stringify(expense),
             headers : {
