@@ -15,7 +15,7 @@ router.get('/weekly',getWeelyExpenses)
 router.get('/:id',getSingleExpense)
 
 //post single expense
-router.post('/',createExpense)
+router.post('/hello',createExpense)
 
 //delete expense
 router.delete('/:id',deleteExpense)
