@@ -19,10 +19,10 @@ app.use(cors({
               'https://e-tracker-frontend-2u1v7qzhm-agap-0251.vercel.app',
               'http://localhost:5173']
 }))
-app.use((req,res,next) => {
+/*app.use((req,res,next) => {
     console.log(req.method,req.path)
     next()
-})
+})*/
 
 // db connection and routes
 app.get('/',(req,res) => {
