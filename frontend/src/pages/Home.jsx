@@ -36,7 +36,7 @@ const RecentBlock = ({ arr }) => {
     </div>
   );
 };
-
+// "http://localhost:3000/api"
 const Home = () => {
   const { expenses, dispatch } = useExpenseContext();
   const { user } = useAuthContext();

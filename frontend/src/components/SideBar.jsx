@@ -33,14 +33,21 @@ const SideBar = () => {
   const uploadImage = async (base64) => {
     const {email} = user
     // console.log(base64)
-    const res = await fetch('/api/user/image',{
+    const res = await fetch(
+      'https://exp-backend.onrender.com/api/user/image',
+      {
       method : 'POST',
       headers : {'Content-Type' : 'application/json'},
       body : JSON.stringify({email,base64})
     })
     const json = await res.json()
     if(res.ok) {
-      setPostImage({...postImage,myFile : base64})
+      localStorage.setItem('user',JSON.stringify({
+        email : user.email,
+        token : user.token,
+        uname : user.uname,
+        uImage : base64
+      }))
       dispatch({type:'LOGIN',payload : {...user,json}})
     }
     if(!res.ok) {
@@ -53,6 +60,7 @@ const SideBar = () => {
     e.preventDefault();
     const file = e.target.files[0]
     const base64 = await convertToBase64(file);
+    console.log(base64)
     uploadImage(base64)
   }
 
@@ -67,7 +75,7 @@ const SideBar = () => {
           <AiOutlineClose className="w-8 h-8 text-white ml-5 mt-5" />
         </button>
 
-        <Profile user = {user} handleUpload={handleUpload} postImage={postImage} />
+        <Profile user = {user} handleUpload={handleUpload}  />
 
       <ul className="
       flex flex-col text-xl justify-center  h-3/5 row-span-3 text-cwheat-light pl-12">

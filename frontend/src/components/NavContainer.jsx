@@ -34,15 +34,20 @@ const NavContainer = () => {
 
   const uploadImage = async (base64) => {
     const {email} = user
-    // console.log(base64)
-    const res = await fetch('/api/user/image',{
+    console.log(base64)
+    const res = await fetch('https://exp-backend.onrender.com/api/user/image',{
       method : 'POST',
       headers : {'Content-Type' : 'application/json'},
       body : JSON.stringify({email,base64})
     })
     const json = await res.json()
     if(res.ok) {
-      setPostImage({...postImage,myFile : base64})
+      localStorage.setItem('user',JSON.stringify({
+        email : user.email,
+        token : user.token,
+        uname : user.uname,
+        uImage : base64
+      }))
       dispatch({type:'LOGIN',payload : {...user,json}})
     }
     if(!res.ok) {
@@ -79,7 +84,7 @@ const NavContainer = () => {
             E-Tracker
           </h1>
 
-          <Profile user = {user} handleUpload={handleUpload} postImage={postImage} />
+          <Profile user = {user} handleUpload={handleUpload} />
 
           <ul className="flex flex-col text-xl  justify-between mt-32 h-full row-span-3 text-cwheat-light">
             <li className={act === 0 ? "text-corange-light" : ""}>

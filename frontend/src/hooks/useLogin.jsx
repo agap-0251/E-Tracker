@@ -11,7 +11,9 @@ export const useLogin = () => {
     
     const login = async ({email,password}) => {
         setIsLoading(true)
-        const res = await fetch('https://exp-backend.onrender.com/api/user/login',{
+        const res = await fetch(
+            'https://exp-backend.onrender.com/api/user/login',
+        {
             method : 'POST',
             headers : {'Content-Type' : 'application/json',
                       'accept' : 'application/json'},
@@ -24,7 +26,7 @@ export const useLogin = () => {
         }
         else {
             // save to localStorage
-            // console.log(json)
+            console.log("use login hook" + json)
             localStorage.setItem('user',JSON.stringify(json))
             //update auth context
             dispatch({type: 'LOGIN',payload : json})
