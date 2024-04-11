@@ -20,18 +20,23 @@ export const useLogin = () => {
             body : JSON.stringify({email,password})
         })
         const json = await res.json()
+
         if(!res.ok) {
+            console.log("res not ok,",json)
             setError(json.error)
             setIsLoading(false)
+            return {error : json.error};
         }
         else {
             // save to localStorage
+            console.log("res ok,",json)
             console.log("use login hook" + json)
             localStorage.setItem('user',JSON.stringify(json))
             //update auth context
             dispatch({type: 'LOGIN',payload : json})
             setError(null)
             setIsLoading(false)
+            return {error : ""};
         }
     }
     return {login,isLoading,error}

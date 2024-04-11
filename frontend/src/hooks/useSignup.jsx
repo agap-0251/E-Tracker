@@ -19,6 +19,7 @@ export const useSignup = () => {
         if(!res.ok) {
             setError(json.error)
             setIsLoading(false)
+            return {error: json.error};
         }
         else {
             // save to localStorage
@@ -29,6 +30,7 @@ export const useSignup = () => {
 
             setError(null)
             setIsLoading(false)
+            return {error : ""};
         }
     }
     return {signup,isLoading,error}

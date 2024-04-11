@@ -3,6 +3,7 @@ import { AiFillDelete } from "react-icons/ai";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useExpenseContext } from "../hooks/useExpenseContext";
 import { formatDistanceToNow } from "date-fns";
+import { showDeleteMsg } from "./ToastMsg";
 
 const TransBlock = ({ trans }) => {
   const { user } = useAuthContext();
@@ -23,6 +24,7 @@ const TransBlock = ({ trans }) => {
     if (res.ok) {
       console.log(json);
       dispatch({ type: "DELETE_EXPENSE", payload: trans._id });
+      showDeleteMsg()
     }
   };
 
