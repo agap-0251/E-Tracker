@@ -57,6 +57,7 @@ const Income = () => {
   },[expenses,dispatch])
 
   useEffect(() => {
+    localStorage.setItem("path","/income")
     if(showNav) {
       document.body.style.overflow = "hidden";
     }

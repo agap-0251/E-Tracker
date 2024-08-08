@@ -69,7 +69,7 @@ const Profile = ({handleUpload,user}) => {
         <div className=" py-3 flex items-center row-span-2">
             <form onSubmit={handleUpload} >
             <label htmlFor="file-upload" className="cursor-pointer" >
-              {user.uImage?<img className="p-1 glg:w-[5rem] glg:h-[5rem] bg-gray-500 shadow-lg shadow-black rounded-full
+              {user?.uImage?<img className="p-1 glg:w-[5rem] glg:h-[5rem] bg-gray-500 shadow-lg shadow-black rounded-full
           lg:w-[4.5rem] lg:h-[4.5rem] lg:mt-0 lg:ml-0
           vs:w-[4.5rem] vs:h-[4.5rem] vs:ml-10 vs:mt-4"
                src={user.uImage} /> : <Avatar />}
@@ -84,7 +84,7 @@ const Profile = ({handleUpload,user}) => {
             vs:text-2xl vs:mt-3"
 
             >
-              {user.uname}
+              {user?.uname}
             </p>
           </div>
   )

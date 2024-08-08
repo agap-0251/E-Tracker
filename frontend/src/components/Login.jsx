@@ -2,18 +2,22 @@ import React, { useState } from 'react'
 import "../components/login.css"
 import { useLogin } from '../hooks/useLogin'
 import { ToastContainer } from 'react-toastify'
-import { showToastMessage } from './ToastMsg'
+import { showToastMessage,showToastErrorMessage } from './ToastMsg'
 
 
 const Login = () => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
-    const {login,isLoading,error} = useLogin()
+    const {login,isLoading} = useLogin()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        login({email,password})
-        showToastMessage('Welcome back..')
+        const {error} = await login({email,password})
+        console.log(error);
+        if(error)
+          showToastErrorMessage(error)
+        else
+          showToastMessage('Welcome back..')
     }
 
   return (
@@ -36,7 +40,7 @@ const Login = () => {
         <button className='bg-blue-600 hover:opacity-90 text-white xs:text-xl xs:px-6 xs:py-2 rounded-lg
           xxs:text-lg xxs:px-4 xxs:py-1 px-2 py-1' type='submit' disabled = {isLoading} >{isLoading ? "Logging..." : "Login"}</button>
     </form>
-    {error && <div className='error'>{error}</div>}
+    {/* {error && <div className='error'>{error}</div>} */}
     <ToastContainer />
     </div>
     

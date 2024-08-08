@@ -1,5 +1,5 @@
 import React, {useEffect, useState } from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink} from "react-router-dom";
 import { useAuthContext } from "../hooks/useAuthContext";
 import { useLogout } from "../hooks/useLogout";
 import { BsGraphUpArrow } from "react-icons/bs";
@@ -10,16 +10,17 @@ import Profile from "./Profile";
 import { showToastMessage } from "./ToastMsg";
 import { ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
+import { usePathContext } from "../hooks/usePathContext";
 
 
 const NavContainer = () => {
-  const [act, setAct] = useState(0);
+  const {path} = usePathContext();
   const [postImage,setPostImage] = useState({myFile : ""})
   const { user,dispatch } = useAuthContext();
   const { logout } = useLogout();
   
   useEffect(() => {
-    setPostImage({...postImage,myFile:user.uImage})
+    setPostImage({...postImage,myFile:user?.uImage})
   },[user])
 
   function handleNav(n) {
@@ -87,7 +88,7 @@ const NavContainer = () => {
           <Profile user = {user} handleUpload={handleUpload} />
 
           <ul className="flex flex-col text-xl  justify-between mt-32 h-full row-span-3 text-cwheat-light">
-            <li className={act === 0 ? "text-corange-light" : ""}>
+            <li className={path === "/" ? "text-corange-light" : ""}>
               <NavLink
                 onClick={() => {
                   handleNav(0);
@@ -98,7 +99,7 @@ const NavContainer = () => {
                 <BsGraphUpArrow className="mr-1" /> Dashboard
               </NavLink>
             </li>
-            <li className={act === 1 ? "text-corange-light" : ""}>
+            <li className={path === "/transactions" ? "text-corange-light" : ""}>
               <NavLink
                 onClick={() => {
                   handleNav(1);
@@ -109,7 +110,7 @@ const NavContainer = () => {
                 <BiTransfer className="mr-1" /> Transactions
               </NavLink>
             </li>
-            <li className={act === 2 ? "text-corange-light" : ""}>
+            <li className={path === "/income" ? "text-corange-light" : ""}>
               <NavLink
                 onClick={() => {
                   handleNav(2);
@@ -120,7 +121,7 @@ const NavContainer = () => {
                 <FaMoneyCheck className="mr-1" /> Income
               </NavLink>
             </li>
-            <li className={act === 3 ? "text-corange-light" : ""}>
+            <li className={path === "/expense" ? "text-corange-light" : ""}>
               <NavLink
                 onClick={() => {
                   handleNav(3);

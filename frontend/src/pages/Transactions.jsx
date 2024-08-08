@@ -10,6 +10,7 @@ const Transactions = () => {
   const [showNav] = useNavContext()
 
   useEffect(() => {
+    localStorage.setItem("path","/transactions")
     if(showNav) {
       document.body.style.overflow = "hidden";
     }

@@ -1,17 +1,25 @@
 import React, { useState } from 'react'
 import "../components/login.css"
 import { useSignup } from '../hooks/useSignup'
+import { ToastContainer } from 'react-toastify'
+import { showToastMessage,showToastErrorMessage } from './ToastMsg'
 
 const Signup = () => {
     const [email,setEmail] = useState('')
     const [password,setPassword] = useState('')
     const [uname,setUName] = useState('')
-    const {signup,isLoading,error}  = useSignup()
+    const {signup,isLoading}  = useSignup()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
         console.log(email,uname,password)
-        signup({email,uname,password})
+        // signup({email,uname,password})
+        const {error} = await signup({email,uname,password})
+        console.log(error);
+        if(error)
+          showToastErrorMessage(error)
+        else
+          showToastMessage('Welcome ...')
      
     }
 
@@ -37,7 +45,7 @@ const Signup = () => {
           xxs:text-lg xxs:px-4 xxs:py-1 px-2 py-1' type='submit' disabled = {isLoading} >{isLoading ? "creating..." : "Signup"}</button>
         
     </form>
-    {error && <div className='error' >{error}</div>}
+    {/* {error && <div className='error' >{error}</div>} */}
     </div>
     
   )

@@ -37,6 +37,8 @@ const TypeText = () => {
 const LandingPage = () => {
   const [hadAccount,setHadAccount] = useState(true)
 
+  
+
   const handleClick = () => {
     setHadAccount(prev => !prev);
   }

@@ -7,6 +7,8 @@ import TotalBlock from "../components/TotalBlock";
 import { useNavContext } from "../hooks/useNavContext";
 import "../components/chart.css"
 import { ToastContainer } from "react-toastify";
+import { useNavigate } from "react-router-dom";
+// import {} from "react-router-dom"
 
 
 const RecentBlock = ({ arr }) => {
@@ -39,8 +41,9 @@ const RecentBlock = ({ arr }) => {
 // "http://localhost:3000/api"
 const Home = () => {
   const { expenses, dispatch } = useExpenseContext();
-  const { user } = useAuthContext();
   const [showNav] = useNavContext();
+  const {user} = useAuthContext()
+  const nav = useNavigate()
 
   useEffect(() => {
     const fetchExpenses = async () => {
@@ -61,9 +64,13 @@ const Home = () => {
     if (user) {
       fetchExpenses();
     }
+    else{
+      nav('/register')
+    }
   }, [dispatch, user]);
 
   useEffect(() => {
+    localStorage.setItem("path","/")
     if(showNav) {
       document.body.style.overflow = "hidden";
     }
@@ -71,7 +78,9 @@ const Home = () => {
       document.body.style.overflow = "visible";
       
     }
+    
   },[showNav])
+
 
 
 

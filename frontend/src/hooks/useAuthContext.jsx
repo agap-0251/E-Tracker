@@ -10,6 +10,7 @@ export const useAuthContext = () => {
         if(user) {
             context.dispatch({type : 'LOGIN',payload : user})
         }
+        context.dispatch({type : 'LOADING',payload : false})
     },[])
 
     if(!context) {
